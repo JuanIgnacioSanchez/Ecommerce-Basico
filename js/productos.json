@@ -1,0 +1,38 @@
+[
+  {
+    "nombre": "BUZO WASHED",
+    "id": 1,
+    "imagen": "images/beingLu.webp",
+    "precio": 15800
+  },
+  {
+    "nombre": "BUZO BLIZZARD",
+    "id": 2,
+    "imagen": "images/fuckLu.webp",
+    "precio": 15000
+  },
+  {
+    "nombre": "BUZO WINTER",
+    "id": 3,
+    "imagen": "images/winterBzz.webp",
+    "precio": 15400
+  },
+  {
+    "nombre": "BUZO TRAVIS",
+    "id": 4,
+    "imagen": "images/travisPrincipal.webp",
+    "precio": 15000
+  },
+  {
+    "nombre": "BUZO NOHANT",
+    "id": 5,
+    "imagen": "images/nohantValot.webp",
+    "precio": 15800
+  },
+  {
+    "nombre": "BUZO ORIGINAL",
+    "id": 6,
+    "imagen": "images/originalLu.webp",
+    "precio": 15800
+  }
+]

@@ -1,0 +1,209 @@
+.section-carrito {
+  .table-carrito {
+    display: flex;
+    flex-direction: column;
+    margin: 5% 5% 0;
+    text-align: center;
+    align-items: center;
+
+    tbody {
+      padding: 0 0 10%;
+      width: 100%;
+      margin: 4%;
+      width: 100%;
+      border-bottom: 1px solid map-get($color, shadow-secondary53);
+
+      tr {
+        color: map-get($color, shadow-secondary-5);
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .cantidad-producto {
+          width: 30%;
+        }
+
+        .bnt-modificar-cantidad {
+          margin: 0 13%;
+          font-size: 110%;
+          color: map-get($color, secondary-color);
+          border: 0;
+          background-color: rgb(230, 230, 230);
+          cursor: pointer;
+          background-color: map-get($color, primary-color);
+          @include transition-1(300ms);
+
+          &:hover {
+            color: map-get($color, shadow-secondary-5);
+          }
+        }
+
+        .quitarProducto {
+          border: 0;
+          background-color: rgb(230, 230, 230);
+          cursor: pointer;
+          background-color: map-get($color, primary-color);
+          @include transition-1(300ms);
+
+          &:hover {
+            color: map-get($color, shadow-secondary-6);
+          }
+        }
+      }
+    }
+  }
+}
+
+.sec-carrito-vacio {
+  height: 80vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .carrito-vacio {
+    border: 1px solid map-get($color, shadow-secondary-2);
+    border-radius: 10px;
+    box-shadow: 0 0 15px map-get($color, shadow-secondary-2);
+    padding: 10% 15%;
+
+    .p-carrito-vacio {
+      color: map-get($color, shadow-secondary-4);
+    }
+  }
+}
+
+.desaparecer-cartel-carrito-vacio {
+  display: none;
+}
+
+.btns-comprar-vaciar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+
+  .btns-carrito {
+    padding: 1%;
+    margin: 2% 6%;
+    border: 0;
+    box-shadow: 0 0 5px map-get($color, shadow-secondary-5);
+    border-radius: 5px;
+    background-color: map-get($color, primary-color);
+    color: map-get($color, secondary-color);
+    @include transition-1(300ms);
+
+    &:hover {
+      background-color: map-get($color, shadow-secondary-1);
+      box-shadow: 0 0 10px map-get($color, shadow-secondary-5);
+      transform: scale(110%);
+    }
+  }
+}
+
+.desaparecer-section-btns {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .section-carrito {
+    .table-carrito {
+      margin: 5% 15% 0;
+
+      tbody {
+        padding: 0 0 8%;
+
+        tr {
+          font-size: 120%;
+        }
+      }
+    }
+  }
+
+  .sec-carrito-vacio {
+    .carrito-vacio {
+      .p-carrito-vacio {
+        font-size: 130%;
+      }
+    }
+  }
+
+  .btns-comprar-vaciar {
+    margin: 3%;
+
+    .btns-carrito {
+      margin: 2% 8%;
+      font-size: 110%;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .section-carrito {
+    .table-carrito {
+      margin: 3% 15% 0;
+
+      tbody {
+        padding: 0 0 5%;
+        margin: 4% 4% 0;
+
+        tr {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .sec-carrito-vacio {
+    .carrito-vacio {
+      padding: 5% 10%;
+
+      .p-carrito-vacio {
+        font-size: 130%;
+      }
+    }
+  }
+
+  .btns-comprar-vaciar {
+    margin: 3% 3% 0;
+
+    .btns-carrito {
+      margin: 2% 10%;
+      font-size: 100%;
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .section-carrito {
+    .table-carrito {
+      margin: 2% 15% 0;
+
+      tbody {
+        padding: 0 0 5%;
+
+        tr {
+          font-size: 130%;
+        }
+      }
+    }
+  }
+
+  .sec-carrito-vacio {
+    .carrito-vacio {
+      padding: 5% 10%;
+
+      .p-carrito-vacio {
+        font-size: 150%;
+      }
+    }
+  }
+
+  .btns-comprar-vaciar {
+    .btns-carrito {
+      margin: 2% 8%;
+      font-size: 110%;
+    }
+  }
+}
