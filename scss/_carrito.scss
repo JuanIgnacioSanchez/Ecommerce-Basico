@@ -82,22 +82,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5%;
+  flex-direction: column;
+  padding: 5%;
+  box-shadow: 0px -1px 10px map-get($color, shadow-secondary-2);
 
-  .btns-carrito {
-    padding: 1%;
-    margin: 2% 6%;
-    border: 0;
-    box-shadow: 0 0 5px map-get($color, shadow-secondary-5);
-    border-radius: 5px;
-    background-color: map-get($color, primary-color);
-    color: map-get($color, secondary-color);
-    @include transition-1(300ms);
+  .p-total-carrito {
+    width: 100%;
+    text-align: center;
+    color: map-get($color, shadow-secondary-8);
+  }
 
-    &:hover {
-      background-color: map-get($color, shadow-secondary-1);
-      box-shadow: 0 0 10px map-get($color, shadow-secondary-5);
-      transform: scale(110%);
+  .div-btns-carrito {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 0 0;
+
+    .btns-carrito {
+      padding: 1%;
+      margin: 2% 6%;
+      border: 0;
+      box-shadow: 0 0 5px map-get($color, shadow-secondary-5);
+      border-radius: 5px;
+      background-color: map-get($color, primary-color);
+      color: map-get($color, secondary-color);
+      @include transition-1(300ms);
+
+      &:hover {
+        background-color: map-get($color, shadow-secondary-1);
+        box-shadow: 0 0 10px map-get($color, shadow-secondary-5);
+        transform: scale(110%);
+      }
     }
   }
 }
@@ -130,11 +146,20 @@
   }
 
   .btns-comprar-vaciar {
-    margin: 3%;
+    padding: 3% 3% 0;
 
-    .btns-carrito {
-      margin: 2% 8%;
-      font-size: 110%;
+    .p-total-carrito {
+      padding-top: 3%;
+      font-size: 125%;
+    }
+
+    .div-btns-carrito {
+      margin-top: 3%;
+
+      .btns-carrito {
+        margin: 2% 8%;
+        font-size: 110%;
+      }
     }
   }
 }
@@ -166,11 +191,13 @@
   }
 
   .btns-comprar-vaciar {
-    margin: 3% 3% 0;
+    padding: 2% 0 0;
 
-    .btns-carrito {
-      margin: 2% 10%;
-      font-size: 100%;
+    .div-btns-carrito {
+      .btns-carrito {
+        margin: 0 10% 1%;
+        font-size: 100%;
+      }
     }
   }
 }
@@ -201,9 +228,14 @@
   }
 
   .btns-comprar-vaciar {
-    .btns-carrito {
-      margin: 2% 8%;
-      font-size: 110%;
+    padding: 1% 0 0;
+    .div-btns-carrito {
+      margin-top: 1%;
+
+      .btns-carrito {
+        margin: 2% 8% 1%;
+        font-size: 110%;
+      }
     }
   }
 }

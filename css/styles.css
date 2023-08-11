@@ -276,9 +276,23 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5%;
+  flex-direction: column;
+  padding: 5%;
+  box-shadow: 0px -1px 10px rgba(255, 255, 255, 0.2);
 }
-.btns-comprar-vaciar .btns-carrito {
+.btns-comprar-vaciar .p-total-carrito {
+  width: 100%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+}
+.btns-comprar-vaciar .div-btns-carrito {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5% 0 0;
+}
+.btns-comprar-vaciar .div-btns-carrito .btns-carrito {
   padding: 1%;
   margin: 2% 6%;
   border: 0;
@@ -288,7 +302,7 @@ main {
   color: white;
   transition: all 300ms ease;
 }
-.btns-comprar-vaciar .btns-carrito:hover {
+.btns-comprar-vaciar .div-btns-carrito .btns-carrito:hover {
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   transform: scale(110%);
@@ -312,9 +326,16 @@ main {
     font-size: 130%;
   }
   .btns-comprar-vaciar {
-    margin: 3%;
+    padding: 3% 3% 0;
   }
-  .btns-comprar-vaciar .btns-carrito {
+  .btns-comprar-vaciar .p-total-carrito {
+    padding-top: 3%;
+    font-size: 125%;
+  }
+  .btns-comprar-vaciar .div-btns-carrito {
+    margin-top: 3%;
+  }
+  .btns-comprar-vaciar .div-btns-carrito .btns-carrito {
     margin: 2% 8%;
     font-size: 110%;
   }
@@ -337,10 +358,10 @@ main {
     font-size: 130%;
   }
   .btns-comprar-vaciar {
-    margin: 3% 3% 0;
+    padding: 2% 0 0;
   }
-  .btns-comprar-vaciar .btns-carrito {
-    margin: 2% 10%;
+  .btns-comprar-vaciar .div-btns-carrito .btns-carrito {
+    margin: 0 10% 1%;
     font-size: 100%;
   }
 }
@@ -360,8 +381,14 @@ main {
   .sec-carrito-vacio .carrito-vacio .p-carrito-vacio {
     font-size: 150%;
   }
-  .btns-comprar-vaciar .btns-carrito {
-    margin: 2% 8%;
+  .btns-comprar-vaciar {
+    padding: 1% 0 0;
+  }
+  .btns-comprar-vaciar .div-btns-carrito {
+    margin-top: 1%;
+  }
+  .btns-comprar-vaciar .div-btns-carrito .btns-carrito {
+    margin: 2% 8% 1%;
     font-size: 110%;
   }
 }

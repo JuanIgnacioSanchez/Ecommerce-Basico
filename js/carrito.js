@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnFinalizarCompra = document.querySelector("#finalizarCompra");
   const cartelCarritoVacio = document.querySelector(".sec-carrito-vacio");
   const sectionBotones = document.querySelector(".btns-comprar-vaciar");
+  const totalCarrito = document.querySelector("#totalCarrito");
 
   /* Funcion para manipular el contador de cantidad de productos en el carrito */
   function contadorCarrito() {
@@ -44,34 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   carritoLS && generarFilasCarrito(carritoLS);
 
-  /* Funcion para vaciar el carrito */
-  function vaciarCarrito() {
-    btnVaciarCarrito.addEventListener("click", () => {
-      Swal.fire({
-        title: "¿Desea vaciar el carrito?",
-        text: "¡No podrás revertir esto!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Vaciar carrito",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          carritoLS.length = 0;
-          localStorage.removeItem("carrito");
-          generarFilasCarrito(carritoLS);
-          contadorCarrito();
-          Swal.fire({
-            icon: "success",
-            title: "¡El carrito se ha vaciado!",
-          });
-          cartelesAparecerDesaparecer();
-        }
-      });
-    });
-  }
-  carritoLS && vaciarCarrito();
-
   /* Función para disminuir la cantidad de un producto en el carrito */
   function disminuirCantidad(event) {
     const btn = event.target;
@@ -85,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("carrito", JSON.stringify(carritoLS));
       generarFilasCarrito(carritoLS);
       contadorCarrito();
+      mostrarTotalCarrito();
     }
   }
 
@@ -101,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("carrito", JSON.stringify(carritoLS));
       generarFilasCarrito(carritoLS);
       contadorCarrito();
+      mostrarTotalCarrito();
     }
   }
 
@@ -137,6 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
       generarFilasCarrito(carritoLS);
       contadorCarrito();
       cartelesAparecerDesaparecer();
+      mostrarTotalCarrito();
     }
   }
   containerCarrito.addEventListener("click", (event) => {
@@ -144,6 +120,52 @@ document.addEventListener("DOMContentLoaded", () => {
       eliminarProducto(event);
     }
   });
+
+  /* Funcion para sumar el total de los productos en carrito */
+  function sumarTotalCarrito(array) {
+    const total = array.reduce(
+      (acc, producto) => acc + producto.precio * producto.cantidad,
+      0
+    );
+    return total;
+  }
+
+  /* Funcion para modificar el DOM y mostrar el total del carrito */
+  function mostrarTotalCarrito() {
+    totalCarrito.innerHTML = "";
+    totalCarrito.innerHTML += sumarTotalCarrito(carritoLS);
+  }
+
+  carritoLS && mostrarTotalCarrito();
+
+  /* Funcion para vaciar el carrito */
+  function vaciarCarrito() {
+    btnVaciarCarrito.addEventListener("click", () => {
+      Swal.fire({
+        title: "¿Desea vaciar el carrito?",
+        text: "¡No podrás revertir esto!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Vaciar carrito",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          carritoLS.length = 0;
+          localStorage.removeItem("carrito");
+          generarFilasCarrito(carritoLS);
+          contadorCarrito();
+          mostrarTotalCarrito();
+          Swal.fire({
+            icon: "success",
+            title: "¡El carrito se ha vaciado!",
+          });
+          cartelesAparecerDesaparecer();
+        }
+      });
+    });
+  }
+  carritoLS && vaciarCarrito();
 
   /* Funcion para finalizar la compra */
   function finalizarCompra() {
@@ -161,6 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
           localStorage.removeItem("carrito");
           generarFilasCarrito(carritoLS);
           contadorCarrito();
+          mostrarTotalCarrito();
           Swal.fire({
             icon: "success",
             title: "¡Su compra ha se ha realizado con éxito!",
